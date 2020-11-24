@@ -1,0 +1,16 @@
+#! /usr/bin/python3
+
+import sys
+import subprocess
+
+def main():
+    for filename in sys.argv[1:]:
+        if filename.lower().endswith('.small.pdf'):
+            continue
+        elif filename.lower().endswith('.pdf'):
+            subprocess.run(['ps2pdf', filename, filename[:-4] + '.small.pdf'])
+        else:
+            continue
+
+if __name__ == "__main__":
+    main()
